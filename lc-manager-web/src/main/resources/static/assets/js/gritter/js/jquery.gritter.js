@@ -135,7 +135,7 @@
 			var image_str = (image != '') ? '<img src="' + image + '" class="gritter-image" />' : '',
 				class_name = (image != '') ? 'gritter-with-image' : 'gritter-without-image';
 			
-			// String replacements on the template
+			// String replacements on the templates
 			if(title){
 				title = this._str_replace('[[title]]',title,this._tpl_title);
 			}else{

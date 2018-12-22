@@ -13,11 +13,11 @@
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/js/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
         
-    <!-- Custom styles for this template -->
+    <!-- Custom styles for this templates -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
-    
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -220,12 +220,12 @@
                   </li>
 
                   <li class="sub-menu">
-                      <a href="javascript:;" >
+                      <a class="active" href="javascript:;" >
                           <i class="fa fa-cogs"></i>
                           <span>Components</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="calendar.html">Calendar</a></li>
+                          <li class="active"><a  href="calendar.html">Calendar</a></li>
                           <li><a  href="gallery.html">Gallery</a></li>
                           <li><a  href="todo_list.html">Todo List</a></li>
                       </ul>
@@ -261,12 +261,12 @@
                       </ul>
                   </li>
                   <li class="sub-menu">
-                      <a class="active" href="javascript:;" >
+                      <a href="javascript:;" >
                           <i class=" fa fa-bar-chart-o"></i>
                           <span>Charts</span>
                       </a>
                       <ul class="sub">
-                          <li class="active"><a  href="morris.html">Morris</a></li>
+                          <li><a  href="morris.html">Morris</a></li>
                           <li><a  href="chartjs.html">Chartjs</a></li>
                       </ul>
                   </li>
@@ -276,81 +276,52 @@
           </div>
       </aside>
       <!--sidebar end-->
-      
+
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-          <h3><i class="fa fa-angle-right"></i> Chartjs Charts</h3>
+          	<h3><i class="fa fa-angle-right"></i> Calendar</h3>
               <!-- page start-->
-              <div class="tab-pane" id="chartjs">
-                  <div class="row mt">
-                      <div class="col-lg-6">
-                          <div class="content-panel">
-							  <h4><i class="fa fa-angle-right"></i> Doughnut</h4>
-                              <div class="panel-body text-center">
-                                  <canvas id="doughnut" height="300" width="400"></canvas>
-                              </div>
-                          </div>
+              <div class="row mt">
+                  <aside class="col-lg-3 mt">
+                      <h4><i class="fa fa-angle-right"></i> Draggable Events</h4>
+                      <div id="external-events">
+                          <div class="external-event label label-theme">My Event 1</div>
+                          <div class="external-event label label-success">My Event 2</div>
+                          <div class="external-event label label-info">My Event 3</div>
+                          <div class="external-event label label-warning">My Event 4</div>
+                          <div class="external-event label label-danger">My Event 5</div>
+                          <div class="external-event label label-default">My Event 6</div>
+                          <div class="external-event label label-theme">My Event 7</div>
+                          <div class="external-event label label-info">My Event 8</div>
+                          <div class="external-event label label-success">My Event 9</div>
+                          <p class="drop-after">
+                              <input type="checkbox" id="drop-remove">
+                              Remove After Drop
+                          </p>
                       </div>
-                      <div class="col-lg-6">
-                          <div class="content-panel">
-							  <h4><i class="fa fa-angle-right"></i> Line</h4>
-                              <div class="panel-body text-center">
-                                  <canvas id="line" height="300" width="400"></canvas>
-                              </div>
+                  </aside>
+                  <aside class="col-lg-9 mt">
+                      <section class="panel">
+                          <div class="panel-body">
+                              <div id="calendar" class="has-toolbar"></div>
                           </div>
-                      </div>
-                  </div>
-                  <div class="row mt">
-                      <div class="col-lg-6">
-                          <div class="content-panel">
-							  <h4><i class="fa fa-angle-right"></i> Radar</h4>
-                              <div class="panel-body text-center">
-                                  <canvas id="radar" height="300" width="400"></canvas>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-6">
-                          <div class="content-panel">
-							  <h4><i class="fa fa-angle-right"></i> Polar Area</h4>
-                              <div class="panel-body text-center">
-                                  <canvas id="polarArea" height="300" width="400"></canvas>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="row mt">
-                      <div class="col-lg-6">
-                          <div class="content-panel">
-							  <h4><i class="fa fa-angle-right"></i> Bar</h4>
-                              <div class="panel-body text-center">
-                                  <canvas id="bar" height="300" width="400"></canvas>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-6">
-                          <div class="content-panel">
-							  <h4><i class="fa fa-angle-right"></i> Pie</h4>
-                              <div class="panel-body text-center">
-                                  <canvas id="pie" height="300" width="400"></canvas>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+                      </section>
+                  </aside>
               </div>
               <!-- page end-->
-          </section>          
+		</section><! --/wrapper -->
       </section><!-- /MAIN CONTENT -->
 
       <!--main content end-->
       <!--footer start-->
       <footer class="site-footer">
           <div class="text-center">
-              2014 - Alvarez.is  <a href="http://www.mycodes.net/" target="_blank">源码之家</a>
-              <a href="chartjs.html#" class="go-top">
+              2014 - Alvarez.is  <a href="http://www.mycodes.net/" target="_blank">源锟斤拷之锟斤拷</a>
+              <a href="calendar.html#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
           </div>
@@ -360,6 +331,8 @@
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+	<script src="assets/js/fullcalendar/fullcalendar.min.js"></script>    
     <script src="assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="assets/js/jquery.scrollTo.min.js"></script>
@@ -370,14 +343,13 @@
     <script src="assets/js/common-scripts.js"></script>
 
     <!--script for this page-->
-    <script src="assets/js/chart-master/Chart.js"></script>
-    <script src="assets/js/chartjs-conf.js"></script>
-    
+	<script src="assets/js/calendar-conf-events.js"></script>    
+  
   <script>
       //custom select box
 
       $(function(){
-          $('select.styled').customSelect();
+          $("select.styled").customSelect();
       });
 
   </script>
