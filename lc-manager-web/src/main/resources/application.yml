@@ -1,5 +1,0 @@
-spring:
-  thymeleaf:
-    cache: false
-    content-type: text/html
-    mode: LEGACYHTML5
