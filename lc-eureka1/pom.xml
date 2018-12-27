@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>lc-eureka</artifactId>
+    <artifactId>lc-eureka1</artifactId>
 
     <dependencyManagement>
         <dependencies>

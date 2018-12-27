@@ -11,6 +11,7 @@
     <modules>
 
         <module>lc-eureka</module>
+        <module>lc-eureka1</module>
     </modules>
 
 </project>
