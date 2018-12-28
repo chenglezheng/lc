@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
+import java.util.Scanner;
+
 /**
  * Created by chenglezheng on 2018/12/28.
  */
@@ -14,6 +16,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 public class BasicService {
 
     public static void main(String[] args){
-        new SpringApplicationBuilder(BasicService.class).run(args);
+        System.out.println("提供者服务开始启动");
+        System.out.println("请输入端口号，为避免端口号重复，提供者服务请以9000端口开始，禁止使用占用端口启动...");
+        Scanner scanner=new Scanner(System.in);
+        String port=scanner.nextLine();
+        new SpringApplicationBuilder(BasicService.class).properties("server.port="+port).run(args);
     }
 }

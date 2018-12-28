@@ -9,12 +9,11 @@
     <packaging>pom</packaging>
     <version>1.0.0</version>
     <modules>
-
         <module>lc-eureka</module>
         <module>lc-basic-service</module>
         <module>lc-invoker</module>
-        <module>lc-zuul</module>
         <module>lc-hystrix-monitor</module>
+
     </modules>
 
 </project>

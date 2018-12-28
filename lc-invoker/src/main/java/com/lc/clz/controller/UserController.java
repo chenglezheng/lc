@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-/*@Configuration*/
 public class UserController {
 
     @Autowired
