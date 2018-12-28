@@ -8,11 +8,11 @@ import java.util.Scanner;
 
 @SpringBootApplication
 @EnableEurekaServer
-public class FirstServer {
+public class EurekaServer {
     public static void main(String[] args) {
         //读取控制台输入，决定使用哪个profiles
         Scanner scanner = new Scanner(System.in);
         String profiles = scanner.nextLine();
-        new SpringApplicationBuilder(FirstServer.class).profiles(profiles).run(args);
+        new SpringApplicationBuilder(EurekaServer.class).profiles(profiles).run(args);
     }
 }

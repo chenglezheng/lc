@@ -11,7 +11,10 @@
     <modules>
 
         <module>lc-eureka</module>
-        <module>lc-eureka1</module>
+        <module>lc-basic-service</module>
+        <module>lc-invoker</module>
+        <module>lc-zuul</module>
+        <module>lc-hystrix-monitor</module>
     </modules>
 
 </project>
