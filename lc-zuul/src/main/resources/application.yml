@@ -1,6 +1,8 @@
+server:
+  port: 8888
 spring:
   application:
-    name: lc-invoker
+    name: lc-zuul
 eureka:
   instance:
     instance-id: ${spring.cloud.client.ipAddress}:${server.port}
@@ -9,14 +11,10 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/
-feign:
-  hystrix :
-    enabled: true
-    command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMillseconds: 2000 #线程超时,调用Fallback方法
-      circuitBreaker:
-        requestVolumeThreshold: 3 #10秒内出现3个以上请求(已临近阀值),并且出错率在50%以上,开启断路器.断开服务,调用Fallback方法
+zuul:
+  host:
+    max-total-connections: 200
+    max-per-route-connections: 20
+  routes:
+    lc-invoker:
+      path: /lc/**

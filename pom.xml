@@ -13,6 +13,7 @@
         <module>lc-basic-service</module>
         <module>lc-invoker</module>
         <module>lc-hystrix-monitor</module>
+        <module>lc-zuul</module>
 
     </modules>
 
