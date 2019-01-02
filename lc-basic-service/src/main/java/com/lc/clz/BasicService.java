@@ -3,7 +3,10 @@ package com.lc.clz;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.util.Scanner;
 
@@ -13,6 +16,9 @@ import java.util.Scanner;
 @MapperScan("com.lc.clz.mapper")
 @SpringBootApplication
 @EnableEurekaClient
+@EnableScheduling
+@EnableCaching
+@EnableTransactionManagement /*开启事务管理*/
 public class BasicService {
 
     public static void main(String[] args){

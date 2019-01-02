@@ -20,19 +20,46 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
-    public int addUser(User user){
+    public User addUser(User user){
         return userService.addUser(user);
     }
 
+
     /**
-     * 分页查询用户
-     * @param pageNum
-     * @param pageSize
+     * 修改用户
+     * @param userId
      * @return
      */
-    @RequestMapping(value = "/all/{pageNum}/{pageSize}", produces = {"application/json;charset=UTF-8"})
-    public Object findAllUser(@PathVariable("pageNum") int pageNum, @PathVariable("pageSize") int pageSize){
-        return userService.findAllUser(pageNum,pageSize);
+    @RequestMapping(value = "/update/{userId}", produces = {"application/json;charset=UTF-8"})
+    public User updateUser(@PathVariable("userId") Long userId){
+        return userService.updateUser(userId);
     }
+
+    /**
+     * 查询用户
+     * @param userId
+     * @return
+     */
+    @RequestMapping(value = "/select/{userId}", produces = {"application/json;charset=UTF-8"})
+    public User selectUser(@PathVariable("userId") Long userId){
+        return userService.selectUser(userId);
+    }
+
+    /**
+     * 删除用户
+     * @param userId
+     * @return
+     */
+    @RequestMapping(value = "/delete/{userId}", produces = {"application/json;charset=UTF-8"})
+    public String  deleteUser(@PathVariable("userId") Long userId){
+        try{
+            userService.deleteUser(userId);
+        }catch (Exception e) {
+            e.printStackTrace();
+            return "删除失败";
+        }
+        return "删除成功";
+    }
+
 }
 

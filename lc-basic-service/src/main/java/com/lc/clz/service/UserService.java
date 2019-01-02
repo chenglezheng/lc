@@ -2,7 +2,6 @@ package com.lc.clz.service;
 
 import com.lc.clz.model.User;
 
-import java.util.List;
 
 /**
  * Created by chenglezheng on 2018/12/28.
@@ -13,13 +12,35 @@ public interface UserService {
      * @param user
      * @return
      */
-    int addUser(User user);
+    User addUser(User user);
+
 
     /**
-     * 分页查询用户信息
-     * @param pageNum
-     * @param pageSize
+     * 修改用户
+     * @param userId
      * @return
      */
-    List<User> findAllUser(int pageNum, int pageSize);
+    User updateUser(Long userId);
+
+    /**
+     * 查询用户
+     * @param userId
+     * @return
+     */
+    User selectUser(Long userId);
+
+    /**
+     * 删除用户
+     * @param userId
+     * @return
+     */
+    void deleteUser(Long userId);
+
+    /**
+     * 删除全部用户
+     * @param
+     * @return
+     */
+    void deleteUser();
+
 }

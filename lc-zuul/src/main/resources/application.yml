@@ -3,6 +3,17 @@ server:
 spring:
   application:
     name: lc-zuul
+  redis:
+    database: 0 #数据库索引（默认为0）
+    host: 192.168.166.160
+    port: 6379
+    password: clz123456
+    pool:
+      max-active: 8 #最大连接数（使用负数代表没有限制）
+      max-wait: -1 #最小连接数（使用负数代表没有限制）
+      max-idle: 8 #最大空闲连接数
+      min-idle: 0 #最小空闲连接数
+    timeout: 0 #连接超时时间
 eureka:
   instance:
     instance-id: ${spring.cloud.client.ipAddress}:${server.port}
@@ -18,3 +29,4 @@ zuul:
   routes:
     lc-invoker:
       path: /lc/**
+
