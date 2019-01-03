@@ -42,7 +42,7 @@ public class UserController {
      */
     @RequestMapping(value = "/select/{userId}", produces = {"application/json;charset=UTF-8"})
     public User selectUser(@PathVariable("userId") Long userId){
-        return userService.selectUser(userId);
+        return userService.selectUser(Long.toString(userId));
     }
 
     /**

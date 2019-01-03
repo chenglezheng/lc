@@ -27,7 +27,7 @@ public interface UserService {
      * @param userId
      * @return
      */
-    User selectUser(Long userId);
+    User selectUser(String userId);
 
     /**
      * 删除用户

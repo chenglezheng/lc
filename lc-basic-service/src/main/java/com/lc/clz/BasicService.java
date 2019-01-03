@@ -16,8 +16,6 @@ import java.util.Scanner;
 @MapperScan("com.lc.clz.mapper")
 @SpringBootApplication
 @EnableEurekaClient
-@EnableScheduling
-@EnableCaching
 @EnableTransactionManagement /*开启事务管理*/
 public class BasicService {
 
