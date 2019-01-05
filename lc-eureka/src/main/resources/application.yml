@@ -2,34 +2,37 @@ server:
   port: 8761
 spring:
   application:
-    name: eureka_server1
+    name: eureka_server
   profiles: server1
 eureka:
   server:
-    enable-self-preservation: false  #解除自我保护模式，加上熔断机制需要设置为true
-    eviction-interval-timer-in-ms: 6000 #该字段代表每6s清理一次服务的注册表(此处注意，如要配置清除策略，则客户端需要配置对应的心态机制，否则不能立马看到实例被剔除的效果)
+    enable-self-preservation: false  #设置自我保护模式（测试中，暂时关掉自我保护）
+    eviction-interval-timer-in-ms: 90000 #该字段代表每90s清理一次服务的注册表(此处注意，如要配置清除策略，则客户端需要配置对应的心态机制，否则不能立马看到实例被剔除的效果)
   instance:
-    lease-renewal-interval-in-seconds: 2 #该字段代表每2s像服务器发送一次心跳
-    lease-expiration-duration-in-seconds: 6  #该字段代表如果6s内没有接收到客户端发过来的心跳，则会从实例中清除掉这个实例
-    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    lease-renewal-interval-in-seconds: 30 #该字段代表每30s像服务器发送一次心跳
+    lease-expiration-duration-in-seconds: 90  #该字段代表如果90s内没有接收到客户端发过来的心跳，则会从实例中清除掉这个实例
   client:
+    register-with-eureka: false     #false表示不向注册中心注册自己。
+    fetch-registry: false     #false表示自己端就是注册中心，维护服务实例，并不需要去检索服务
     serviceUrl:
       defaultZone: http://127.0.0.1:8762/eureka/
 ---
 server:
   port: 8762
+
 spring:
   application:
-    name: eureka_server2
+    name: eureka_server
   profiles: server2
 eureka:
   server:
-    enable-self-preservation: false  #解除自我保护模式，加上熔断机制需要设置为true
-    eviction-interval-timer-in-ms: 6000 #该字段代表每6s清理一次服务的注册表(此处注意，如要配置清除策略，则客户端需要配置对应的心态机制，否则不能立马看到实例被剔除的效果)
+    enable-self-preservation: false  #设置自我保护模式（测试中，暂时关掉自我保护）
+    eviction-interval-timer-in-ms: 90000 #该字段代表每90s清理一次服务的注册表(此处注意，如要配置清除策略，则客户端需要配置对应的心态机制，否则不能立马看到实例被剔除的效果)
   instance:
-    lease-renewal-interval-in-seconds: 2 #该字段代表每2s像服务器发送一次心跳
-    lease-expiration-duration-in-seconds: 6  #该字段代表如果6s内没有接收到客户端发过来的心跳，则会从实例中清除掉这个实例
-    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    lease-renewal-interval-in-seconds: 30 #该字段代表每3s像服务器发送一次心跳
+    lease-expiration-duration-in-seconds: 90  #该字段代表如果90s内没有接收到客户端发过来的心跳，则会从实例中清除掉这个实例
   client:
+    register-with-eureka: false     #false表示不向注册中心注册自己。
+    fetch-registry: false     #false表示自己端就是注册中心，维护服务实例，并不需要去检索服务
     serviceUrl:
       defaultZone: http://127.0.0.1:8761/eureka/
