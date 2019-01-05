@@ -1,6 +1,6 @@
 package com.lc.clz.redis;
 
-import com.lc.clz.util.JedisUtil;
+import com.lc.clz.utils.JedisUtil;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.UnknownSessionException;
 import org.apache.shiro.session.mgt.eis.AbstractSessionDAO;

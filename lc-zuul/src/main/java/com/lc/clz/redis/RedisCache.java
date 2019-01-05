@@ -1,6 +1,6 @@
 package com.lc.clz.redis;
 
-import com.lc.clz.util.JedisUtil;
+import com.lc.clz.utils.JedisUtil;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheException;
 import org.springframework.beans.factory.annotation.Autowired;
