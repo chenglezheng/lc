@@ -1,4 +1,4 @@
-package com.lc.clz.service.impl;
+package com.lc.clz.serviceImpl;
 
 import com.lc.clz.mapper.UserMapper;
 import com.lc.clz.entities.User;
@@ -16,10 +16,10 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Created by chenglezheng on 2018/12/28.
  */
-@Service
+@Service("userServiceImpl")
 @CacheConfig(cacheNames="userCache") // 本类内方法指定使用缓存时，默认的名称就是userCache
 @Transactional(propagation=Propagation.REQUIRED,readOnly=false,rollbackFor=Throwable.class)
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
@@ -43,32 +43,34 @@ public class UserServiceImpl implements UserService{
         return user;
     }
 
+
     @CachePut(key="#p0.id")
     public User updateUser(Long userId) {
-        User user=this.selectUser(userId.toString());
+        User user=this.selectUser(userId);
         user.setUserName("clz");
         user.setUserPwd("123");
         userMapper.updateByPrimaryKey(user);
-        return this.selectUser(user.getUserId().toString());
+        return this.selectUser(user.getUserId());
     }
 
-    @Cacheable(key="#p0") // @Cacheable 会先查询缓存，如果缓存中存在，则不执行方法
-    public User selectUser(String userId) {
+    @Cacheable(key="'com.lc.clz.entities.User'+#userId") // @Cacheable 会先查询缓存，如果缓存中存在，则不执行方法
+    public User selectUser(Long userId) {
         User user = (User) redisUtil.get(PREFIX+userId.toString());
         if (user!=null){
           return user;
         }
         System.out.println("从数据库中获取用户信息");
-        return userMapper.selectByPrimaryKey(Long.parseLong(userId));
+        return userMapper.selectByPrimaryKey(userId);
     }
 
+    @Override
     @CacheEvict(key="#p0")  //删除缓存名称为userCache,key等于指定的id对应的缓存
-    public void deleteUser(Long userId) {
-        userMapper.deleteByPrimaryKey(userId);
+    public String deleteUser(Long userId) {
+        return null;
     }
 
-    public void deleteUser() {
-
+    @Override
+    public String deleteAllUser() {
+        return null;
     }
-
 }

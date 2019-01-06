@@ -2,6 +2,7 @@ package com.lc.clz.controller;
 
 import com.lc.clz.entities.User;
 import com.lc.clz.service.UserService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserService userServiceImpl;
 
     /**
      * 添加用户
@@ -21,9 +22,9 @@ public class UserController {
      */
     @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
     public User addUser(User user){
-        return userService.addUser(user);
+        user=new User();
+        return userServiceImpl.addUser(user);
     }
-
 
     /**
      * 修改用户
@@ -32,7 +33,7 @@ public class UserController {
      */
     @RequestMapping(value = "/update/{userId}", produces = {"application/json;charset=UTF-8"})
     public User updateUser(@PathVariable("userId") Long userId){
-        return userService.updateUser(userId);
+        return userServiceImpl.updateUser(userId);
     }
 
     /**
@@ -42,7 +43,7 @@ public class UserController {
      */
     @RequestMapping(value = "/select/{userId}", produces = {"application/json;charset=UTF-8"})
     public User selectUser(@PathVariable("userId") Long userId){
-        return userService.selectUser(Long.toString(userId));
+        return userServiceImpl.selectUser(userId);
     }
 
     /**
@@ -53,7 +54,7 @@ public class UserController {
     @RequestMapping(value = "/delete/{userId}", produces = {"application/json;charset=UTF-8"})
     public String  deleteUser(@PathVariable("userId") Long userId){
         try{
-            userService.deleteUser(userId);
+            userServiceImpl.deleteUser(userId);
         }catch (Exception e) {
             e.printStackTrace();
             return "删除失败";

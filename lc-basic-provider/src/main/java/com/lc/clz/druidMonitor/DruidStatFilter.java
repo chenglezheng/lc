@@ -1,4 +1,4 @@
-package com.lc.clz.druidmonitor;
+package com.lc.clz.druidMonitor;
 
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;

@@ -22,6 +22,7 @@ import org.springframework.cache.interceptor.KeyGenerator;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 @Configuration
 @EnableCaching//启用缓存
@@ -43,8 +44,10 @@ public class RedisAnnotationConfig extends CachingConfigurerSupport {
      */
     @Bean
     public CacheManager cacheManager(RedisTemplate<?,?> redisTemplate) {
-        CacheManager cacheManager = new RedisCacheManager(redisTemplate);
-        return cacheManager;
+        RedisCacheManager redisCacheManager = new RedisCacheManager(redisTemplate);
+        //设置缓存过期时间(秒)
+        redisCacheManager.setDefaultExpiration(600);
+        return redisCacheManager;
     }
     @Bean
     public RedisTemplate<String, String> redisTemplate(JedisConnectionFactory redisConnectionFactory) {
@@ -72,7 +75,7 @@ public class RedisAnnotationConfig extends CachingConfigurerSupport {
      * 自定义key.
      * 此方法将会根据类名+方法名+所有参数的值生成唯一的一个key
      */
-    @Override
+   /* @Override
     public KeyGenerator keyGenerator() {
         System.out.println("RedisCacheConfig.keyGenerator()");
         return new KeyGenerator() {
@@ -87,6 +90,6 @@ public class RedisAnnotationConfig extends CachingConfigurerSupport {
                 return sb.toString();
             }
         };
-    }
+    }*/
 
 }

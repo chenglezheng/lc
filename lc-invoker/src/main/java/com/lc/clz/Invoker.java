@@ -17,8 +17,7 @@ import java.util.Scanner;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-@ServletComponentScan
-@EnableCircuitBreaker
+@EnableCircuitBreaker  //熔断机制
 public class Invoker {
 
     public static void main(String[] args){
