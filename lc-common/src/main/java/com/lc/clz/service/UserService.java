@@ -1,6 +1,6 @@
-package com.lc.clz.feign;
+package com.lc.clz.service;
 
-import com.lc.clz.model.User;
+import com.lc.clz.entities.User;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by chenglezheng on 2018/12/28.
  */
 
-@FeignClient(name = "lc-basic-service",fallback = UserFeign.UserFeignCallback.class)
-public interface UserFeign {
+@FeignClient(name = "lc-basic-service",fallback = UserService.UserServiceCallback.class)
+public interface UserService {
 
     @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
     User addUser(User user);
@@ -29,9 +29,11 @@ public interface UserFeign {
     String deleteAllUser();
 
     @Component
-    class UserFeignCallback implements UserFeign {
+    class UserServiceCallback implements UserService {
         public User addUser(User user) {
-            return null;
+            user=new User();
+            user.setUserName("暂停服务");
+            return user;
         }
 
         public User updateUser(Long userId) {
@@ -39,7 +41,9 @@ public interface UserFeign {
         }
 
         public User selectUser(Long userId) {
-            return null;
+            User user =new User();
+            user.setUserName("暂停服务");
+            return user;
         }
 
         public String deleteUser(Long userId) {
