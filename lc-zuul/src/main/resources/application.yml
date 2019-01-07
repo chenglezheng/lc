@@ -1,24 +1,13 @@
 server:
-  port: 8888
+  port: 80
 spring:
   application:
     name: lc-zuul
-  redis:
-    database: 0 #数据库索引（默认为0）
-    host: 192.168.166.160
-    port: 6379
-    password: clz123456
-    pool:
-      max-active: 8 #最大连接数（使用负数代表没有限制）
-      max-wait: -1 #最小连接数（使用负数代表没有限制）
-      max-idle: 8 #最大空闲连接数
-      min-idle: 0 #最小空闲连接数
-    timeout: 0 #连接超时时间
 eureka:
   instance:
     instance-id: ${spring.cloud.client.ipAddress}:${server.port}
-    lease-renewal-interval-in-seconds: 2 #该字段代表每2s像服务器发送一次心跳
-    lease-expiration-duration-in-seconds: 6  #该字段代表如果6s内没有接收到客户端发过来的心跳，则会从实例中清除掉这个实例
+    lease-renewal-interval-in-seconds: 30 #该字段代表每2s像服务器发送一次心跳
+    lease-expiration-duration-in-seconds: 90  #该字段代表如果6s内没有接收到客户端发过来的心跳，则会从实例中清除掉这个实例
   client:
     serviceUrl:
       defaultZone: http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/

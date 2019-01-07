@@ -2,7 +2,6 @@ package com.lc.clz.controller;
 
 import com.lc.clz.entities.User;
 import com.lc.clz.service.UserService;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
