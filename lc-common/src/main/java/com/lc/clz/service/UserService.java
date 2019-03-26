@@ -5,6 +5,7 @@ import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Created by chenglezheng on 2018/12/28.
@@ -28,8 +29,23 @@ public interface UserService {
     @RequestMapping(value = "/deleteAll", produces = {"application/json;charset=UTF-8"})
     String deleteAllUser();
 
+    /**
+     * 根据用户名和用户密码返回登录标识
+     * @param userName
+     * @param userPassword
+     * @return
+     */
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    Integer backLoginFlag(String userName,String userPassword);
+
+
     @Component
     class UserServiceCallback implements UserService {
+        @Override
+        public Integer backLoginFlag(String userName, String userPassword) {
+            return null;
+        }
+
         public User addUser(User user) {
             user=new User();
             user.setUserName("暂停服务");

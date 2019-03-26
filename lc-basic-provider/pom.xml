@@ -55,27 +55,26 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
         <!-- 修改后立即生效，热部署 -->
-        <!--<dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
+            <version>1.5.7.RELEASE</version>
             <optional>true</optional>
-        </dependency>-->
+        </dependency>
     </dependencies>
 
     <build>
-       <!-- <plugins>
+        <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.5.7.RELEASE</version>
                 <configuration>
                     <fork>true</fork>
+                    <addResources>true</addResources>
                 </configuration>
             </plugin>
-        </plugins>-->
+        </plugins>
     </build>
 
 </project>

@@ -23,10 +23,11 @@ public class BasicProvider {
 
 
     public static void main(String[] args){
-        System.out.println("基础服务提供者服务开始启动");
+       /* System.out.println("基础服务提供者服务开始启动");
         System.out.println("请输入端口号，为避免端口号重复，提供者服务请以9000端口开始，禁止使用占用端口启动...");
         Scanner scanner=new Scanner(System.in);
         String port=scanner.nextLine();
-        new SpringApplicationBuilder(BasicProvider.class).properties("server.port="+port).run(args);
+        new SpringApplicationBuilder(BasicProvider.class).properties("server.port="+9000).run(args);*/
+        new SpringApplicationBuilder(BasicProvider.class).run(args);
     }
 }

@@ -73,4 +73,9 @@ public class UserServiceImpl implements UserService {
     public String deleteAllUser() {
         return null;
     }
+
+    @Override
+    public Integer backLoginFlag(String userName, String userPassword) {
+        return null;
+    }
 }

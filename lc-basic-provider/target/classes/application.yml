@@ -1,3 +1,4 @@
+
 spring:
   application:
     name: lc-basic-service
@@ -63,3 +64,5 @@ info:
 logging:
   level:
     com.lc.clz.mapper: debug
+server:
+  port: 9000
