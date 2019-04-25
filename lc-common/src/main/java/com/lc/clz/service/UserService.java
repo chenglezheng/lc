@@ -35,16 +35,16 @@ public interface UserService {
      * @param userPassword
      * @return
      */
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
-    Integer backLoginFlag(String userName,String userPassword);
+    /*@RequestMapping(value = "/login",method = RequestMethod.POST)
+    Integer backLoginFlag(String userName,String userPassword);*/
 
 
     @Component
     class UserServiceCallback implements UserService {
-        @Override
+       /* @Override
         public Integer backLoginFlag(String userName, String userPassword) {
             return null;
-        }
+        }*/
 
         public User addUser(User user) {
             user=new User();

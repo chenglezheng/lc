@@ -2,6 +2,7 @@ package com.lc.clz.controller;
 
 import com.lc.clz.entities.User;
 import com.lc.clz.service.UserService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by chenglezheng on 2018/12/28.
  */
 
+@Api(description = "测试接口")
 @RestController
 public class UserController {
 

@@ -74,8 +74,8 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
-    @Override
+    /*@Override
     public Integer backLoginFlag(String userName, String userPassword) {
         return null;
-    }
+    }*/
 }
