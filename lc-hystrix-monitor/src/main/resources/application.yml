@@ -1,2 +1,15 @@
 server:
   port: 1003
+spring:
+  application:
+    name: lc-hystrix-monitor
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true     #访问路径可以显示IP地址
+    lease-renewal-interval-in-seconds: 30 #该字段代表每2s像服务器发送一次心跳
+    lease-expiration-duration-in-seconds: 90  #该字段代表如果6s内没有接收到客户端发过来的心跳，则会从实例中清除掉这个实例
+turbine:
+  app-config: lc-invoker
+  cluster-name-expression: "default"
+  combine-host-port: true
