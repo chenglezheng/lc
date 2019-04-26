@@ -2,6 +2,7 @@ package com.lc.clz.controller;
 
 import com.lc.clz.entities.User;
 import com.lc.clz.service.UserService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -43,6 +44,17 @@ public class UserController {
     @RequestMapping(value = "/deleteAll", produces = {"application/json;charset=UTF-8"})
     void deleteUser(){
 
+    }
+
+    @RequestMapping(value = "/aa", produces = {"application/json;charset=UTF-8"})
+    @HystrixCommand(fallbackMethod ="aa1")
+    void aa(){
+        Long.parseLong("11fgg");
+        System.out.println(111);
+    }
+
+    void aa1(){
+        System.out.println(222);
     }
 
 }
