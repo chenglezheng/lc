@@ -111,7 +111,6 @@
         <module>lc-zuul</module>
         <module>lc-common</module>
         <module>lc-advance-provider</module>
-        <module>lc-config-client</module>
         <module>lc-config-server</module>
     </modules>
 

@@ -1,3 +1,8 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: lc-config-server
 eureka:
   instance:
     instance-id: ${spring.cloud.client.ipAddress}:${server.port}
