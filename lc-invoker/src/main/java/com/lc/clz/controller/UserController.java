@@ -46,15 +46,4 @@ public class UserController {
 
     }
 
-    @RequestMapping(value = "/aa", produces = {"application/json;charset=UTF-8"})
-    @HystrixCommand(fallbackMethod ="aa1")
-    void aa(){
-        Long.parseLong("11fgg");
-        System.out.println(111);
-    }
-
-    void aa1(){
-        System.out.println(222);
-    }
-
 }

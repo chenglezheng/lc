@@ -11,5 +11,5 @@ eureka:
     lease-expiration-duration-in-seconds: 90  #该字段代表如果6s内没有接收到客户端发过来的心跳，则会从实例中清除掉这个实例
 turbine:
   app-config: lc-invoker
-  cluster-name-expression: "default"
+  cluster-name-expression: "'default'"
   combine-host-port: true
