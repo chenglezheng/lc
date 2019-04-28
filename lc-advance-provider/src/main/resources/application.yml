@@ -55,5 +55,5 @@ pagehelper:
 info:
   app.name: lc-advance-service
   company.name: www.chenglezheng.com
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}

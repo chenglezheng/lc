@@ -13,3 +13,10 @@ eureka:
     initial-instance-info-replication-interval-seconds: 6
     serviceUrl:
       defaultZone: http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/
+
+#info需要显示的信息
+info:
+  app.name: lc-config-server
+  company.name: www.chenglezheng.com
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}

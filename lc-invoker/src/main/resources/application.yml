@@ -26,5 +26,5 @@ feign:
 info:
   app.name: lc-invoker
   company.name: www.chenglezheng.com
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
