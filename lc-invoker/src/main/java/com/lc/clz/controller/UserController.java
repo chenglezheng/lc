@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 /**
  * Created by chenglezheng on 2018/12/28.
  */
@@ -43,8 +45,17 @@ public class UserController {
     }
 
     @RequestMapping(value = "/deleteAll", produces = {"application/json;charset=UTF-8"})
-    void deleteUser(){
+    void deleteUser(){}
 
+    /**
+     * 分页查询用户
+     * @param page
+     * @param limit
+     * @return
+     */
+    @RequestMapping(value = "/selectUserWithPage", produces = {"application/json;charset=UTF-8"})
+    public Map<String,Object> selectUserWithPage(@PathVariable("page") Integer page, @PathVariable("limit") Integer limit){
+        return userService.selectUserWithPage(page,limit);
     }
 
 }

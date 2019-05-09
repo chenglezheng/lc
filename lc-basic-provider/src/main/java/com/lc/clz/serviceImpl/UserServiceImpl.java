@@ -1,9 +1,12 @@
 package com.lc.clz.serviceImpl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lc.clz.mapper.UserMapper;
 import com.lc.clz.entities.User;
 import com.lc.clz.service.UserService;
 import com.lc.clz.utils.RedisUtil;
+import com.lc.clz.utils.TableUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
@@ -12,6 +15,9 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by chenglezheng on 2018/12/28.
@@ -28,6 +34,14 @@ public class UserServiceImpl implements UserService {
     private RedisUtil redisUtil;
 
     private  final  String  PREFIX ="Basic_Provider_UserServiceImpl_";
+
+    @Override
+    public Map<String,Object> selectUserWithPage(Integer page, Integer limit) {
+        PageHelper.startPage(page-1,limit);
+        List<User> users=userMapper.selectAll();
+        PageInfo<User> pageInfo=new PageInfo<>(users);
+        return TableUtils.getTable(pageInfo.getTotal(),users);
+    }
 
 
     // 因为必须要有返回值，才能保存到数据库中，如果保存的对象的某些字段是需要数据库生成的，那保存对象进数据库的时候，就没必要放到缓存了

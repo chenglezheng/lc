@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 
 @RestController
 public class UserController {
@@ -59,6 +61,17 @@ public class UserController {
             return "删除失败";
         }
         return "删除成功";
+    }
+
+    /**
+     * 分页查询用户
+     * @param page
+     * @param limit
+     * @return
+     */
+    @RequestMapping(value = "/selectUserWithPage", produces = {"application/json;charset=UTF-8"})
+    public Map<String,Object> selectUserWithPage(@PathVariable("page") Integer page,@PathVariable("limit") Integer limit){
+        return userServiceImpl.selectUserWithPage(page,limit);
     }
 
 }

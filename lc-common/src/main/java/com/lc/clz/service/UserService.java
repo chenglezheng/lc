@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by chenglezheng on 2018/12/28.
  */
@@ -28,6 +31,9 @@ public interface UserService {
 
     @RequestMapping(value = "/deleteAll", produces = {"application/json;charset=UTF-8"})
     String deleteAllUser();
+
+    @RequestMapping(value = "/selectUserWithPage", produces = {"application/json;charset=UTF-8"})
+    Map<String,Object> selectUserWithPage(Integer page, Integer limit);
 
     /**
      * 根据用户名和用户密码返回登录标识
@@ -68,6 +74,11 @@ public interface UserService {
 
         public String deleteAllUser() {
             return "";
+        }
+
+        @Override
+        public Map<String,Object> selectUserWithPage(Integer page, Integer limit) {
+            return null;
         }
     }
 }

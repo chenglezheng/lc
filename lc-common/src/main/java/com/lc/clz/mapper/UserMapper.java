@@ -2,6 +2,8 @@ package com.lc.clz.mapper;
 
 import com.lc.clz.entities.User;
 
+import java.util.List;
+
 public interface UserMapper {
     int deleteByPrimaryKey(Long userId);
 
@@ -14,4 +16,6 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    List<User> selectAll();
 }
