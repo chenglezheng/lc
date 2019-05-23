@@ -7,3 +7,10 @@ spring:
           search-paths: ${APP_LOCATE:dev}
           username: 981797842@qq.com
           password: Clz!981797842
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+
