@@ -1,18 +1,16 @@
-package com.quartz.lcquartz.serviceimpl;
+package com.lc.clz.quartz.serviceimpl;
 
 import com.lc.clz.entities.BaseGoodInfo;
-import com.quartz.lcquartz.dao.BaseGoodInfoDao;
-import com.quartz.lcquartz.service.GoodInfoService;
-import com.quartz.lcquartz.timer.GoodAddTimer;
-import com.quartz.lcquartz.timer.GoodStockCheckTimer;
+import com.lc.clz.quartz.dao.BaseGoodInfoDao;
+import com.lc.clz.quartz.service.GoodInfoService;
+import com.lc.clz.quartz.timer.GoodAddTimer;
+import com.lc.clz.quartz.timer.GoodSeckillRemindTimer;
+import com.lc.clz.quartz.timer.GoodStockCheckTimer;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import sun.security.util.Cache;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -30,10 +28,14 @@ public class GoodInfoServiceImpl implements GoodInfoService {
     private BaseGoodInfoDao baseGoodInfoDao;
 
     @Override
-    public Long save(BaseGoodInfo baseGoodInfo) {
+    public Long save(BaseGoodInfo baseGoodInfo) throws Exception {
         baseGoodInfoDao.saveBaseGoodInfo(baseGoodInfo);
+        //构建创建商品定时任务
         buildCreateGoodTimer();
+        //构建商品库存定时任务
         buildGoodStockTimer();
+        //构建商品描述提醒定时任务
+        buildGoodSeckillRemindTimer(Long.valueOf(baseGoodInfo.getBgiId()));
         return Long.valueOf(baseGoodInfo.getBgiId());
 
     }
@@ -76,7 +78,21 @@ public class GoodInfoServiceImpl implements GoodInfoService {
         } catch (SchedulerException e) {
             e.printStackTrace();
         }
+    }
 
+    public void buildGoodSeckillRemindTimer(Long goodId) throws Exception{
+        //任务名称
+        String name = UUID.randomUUID().toString();
+        //任务分组
+        String group = GoodSeckillRemindTimer.class.getName();
+        long startTime = System.currentTimeMillis()+ 1000*5*60;
+        //创建任务
+        JobDetail jobDetail = JobBuilder.newJob(GoodSeckillRemindTimer.class).withIdentity(name,group).build();
+        //创建任务触发器
+        Trigger trigger = TriggerBuilder.newTrigger().withIdentity(name, group).startAt(new Date(startTime)).build();
+
+        //绑定任务调度器
+        scheduler.scheduleJob(jobDetail,trigger);
 
     }
 

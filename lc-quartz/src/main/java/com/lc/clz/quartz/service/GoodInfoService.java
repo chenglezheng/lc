@@ -1,4 +1,4 @@
-package com.quartz.lcquartz.service;
+package com.lc.clz.quartz.service;
 
 import com.lc.clz.entities.BaseGoodInfo;
 
@@ -9,7 +9,7 @@ import com.lc.clz.entities.BaseGoodInfo;
  */
 public interface GoodInfoService {
 
-    public Long save(BaseGoodInfo baseGoodInfo);
+    public Long save(BaseGoodInfo baseGoodInfo) throws Exception;
 
     public void buildGoodStockTimer();
 

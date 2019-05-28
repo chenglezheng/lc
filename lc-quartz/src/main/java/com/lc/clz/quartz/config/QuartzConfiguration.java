@@ -1,4 +1,4 @@
-package com.quartz.lcquartz.config;
+package com.lc.clz.quartz.config;
 
 import org.quartz.SchedulerFactory;
 import org.quartz.spi.JobFactory;

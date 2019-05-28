@@ -1,4 +1,4 @@
-package com.quartz.lcquartz.dao;
+package com.lc.clz.quartz.dao;
 
 import com.fasterxml.jackson.databind.ser.Serializers;
 import com.lc.clz.entities.BaseGoodInfo;
