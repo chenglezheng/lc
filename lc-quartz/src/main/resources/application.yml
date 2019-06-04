@@ -1,0 +1,21 @@
+
+server:
+  port: 9001
+spring:
+  application:
+    name: lc-quartz
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lc
+    username: root
+    password: root
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.quartz.lcquartz
+
+
+
