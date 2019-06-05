@@ -1,0 +1,47 @@
+
+#fdfs:
+#  so-timeout: 1501
+#  connect-timeout: 601
+#  thumb-image:   #����ͼ���ɲ���
+#    width: 150
+#    height: 150
+#  tracker-list: 192.168.254.128:22122
+#  tracker-server: 192.168.254.128:22122
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+spring:
+  application:
+    name: lc-upload
+  datasource:
+    name: lc-mybatis
+    #    url: jdbc:mysql://192.168.166.160:3306/lc
+    url: jdbc:mysql://127.0.0.1:3306/south
+    username: root
+    password: root
+    # ʹ��druid����Դ
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat,wall,log4j # ���ü��ͳ�����ص�filters��ȥ�����ؽ���sql�޷�ͳ�ƣ�'wall'���ڷ���ǽ
+    initialSize: 5 # ��ʼ����С
+    maxActive: 20 # ���
+    minIdle: 5 # ��С
+    maxWait: 60000 # ���û�ȡ���ӵȴ���ʱ��ʱ��
+    timeBetweenEvictionRunsMillis: 60000 # ���ü����òŽ���һ�μ�⣬�����Ҫ�رյĿ������ӣ���λ�Ǻ���
+    minEvictableIdleTimeMillis: 300000 # ����һ�������ڳ�����С�����ʱ�䣬��λ�Ǻ���
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true # ��PSCache������ָ��ÿ��������PSCache�Ĵ�С
+    maxOpenPreparedStatements: 20 # ��PSCache������ָ��ÿ��������PSCache�Ĵ�С
+    connectionProperties :
+      duird:
+        stat:
+          mergeSql: true
+          slowSqlMillis: 5000 # ͨ��connectProperties��������mergeSql���ܣ���SQL��¼
+    useGlobalDataSourceStat: true  #�ϲ����DruidDataSource�ļ������(��ʱ������ʱʲô��˼��Ҳû�в��Գ���)                                  #cachePrepStmts: true  # ������������
+  thymeleaf:
+    mode: LEGACYHTML5
+    suffix: .html
