@@ -1,15 +1,11 @@
 package com.lc.clz;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import java.util.Scanner;
 
 /**
  * Created by chenglezheng on 2018/12/28.
@@ -19,7 +15,7 @@ import java.util.Scanner;
 @EnableDiscoveryClient //服务发现
 @EnableTransactionManagement //开启事务管理
 @MapperScan("com.lc.clz.mapper")  //扫描mapper，否则启动会报找不到mapper
-public class BasicProvider {
+public class BasicService {
 
 
     public static void main(String[] args){
@@ -28,6 +24,6 @@ public class BasicProvider {
         Scanner scanner=new Scanner(System.in);
         String port=scanner.nextLine();
         new SpringApplicationBuilder(BasicProvider.class).properties("server.port="+9000).run(args);*/
-        new SpringApplicationBuilder(BasicProvider.class).run(args);
+        new SpringApplicationBuilder(BasicService.class).run(args);
     }
 }

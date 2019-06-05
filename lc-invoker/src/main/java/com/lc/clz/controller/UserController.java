@@ -6,10 +6,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -24,27 +21,27 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"},method = RequestMethod.POST)
+    @GetMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
     public User addUser(User user){
         return userService.addUser(user);
     }
 
-    @RequestMapping(value = "/update", produces = {"application/json;charset=UTF-8"})
+    @GetMapping(value = "/update", produces = {"application/json;charset=UTF-8"})
     public User updateUser(Long userId){
         return userService.updateUser(userId);
     }
 
-    @RequestMapping(value = "/select", produces = {"application/json;charset=UTF-8"})
+    @GetMapping(value = "/select", produces = {"application/json;charset=UTF-8"})
     public User selectUser(Long userId){
         return userService.selectUser(userId);
     }
 
-    @RequestMapping(value = "/delete", produces = {"application/json;charset=UTF-8"})
+    @GetMapping(value = "/delete", produces = {"application/json;charset=UTF-8"})
     public String deleteUser(Long userId){
        return userService.deleteUser(userId);
     }
 
-    @RequestMapping(value = "/deleteAll", produces = {"application/json;charset=UTF-8"})
+    @GetMapping(value = "/deleteAll", produces = {"application/json;charset=UTF-8"})
     void deleteUser(){}
 
     /**
@@ -53,8 +50,8 @@ public class UserController {
      * @param limit
      * @return
      */
-    @RequestMapping(value = "/selectUserWithPage", produces = {"application/json;charset=UTF-8"})
-    public Map<String,Object> selectUserWithPage(@PathVariable("page") Integer page, @PathVariable("limit") Integer limit){
+    @GetMapping(value = "/selectUserWithPage", produces = {"application/json;charset=UTF-8"})
+    public Map<String,Object> selectUserWithPage(@RequestParam("page") Integer page, @RequestParam("limit") Integer limit){
         return userService.selectUserWithPage(page,limit);
     }
 

@@ -3,9 +3,7 @@ package com.lc.clz.service;
 import com.lc.clz.entities.User;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -17,23 +15,23 @@ import java.util.Map;
 @FeignClient(name = "lc-basic-service",fallback = UserService.UserServiceCallback.class)
 public interface UserService {
 
-    @RequestMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
+    @GetMapping(value = "/add", produces = {"application/json;charset=UTF-8"})
     User addUser(User user);
 
-    @RequestMapping(value = "/update/{userId}", produces = {"application/json;charset=UTF-8"})
+    @GetMapping(value = "/update/{userId}", produces = {"application/json;charset=UTF-8"})
     User updateUser(@PathVariable("userId") Long userId);
 
-    @RequestMapping(value = "/select/{userId}", produces = {"application/json;charset=UTF-8"})
+    @GetMapping(value = "/select/{userId}", produces = {"application/json;charset=UTF-8"})
     User selectUser(@PathVariable("userId") Long userId);
 
-    @RequestMapping(value = "/delete/{userId}", produces = {"application/json;charset=UTF-8"})
+    @GetMapping(value = "/delete/{userId}", produces = {"application/json;charset=UTF-8"})
     String deleteUser(@PathVariable("userId") Long userId);
 
-    @RequestMapping(value = "/deleteAll", produces = {"application/json;charset=UTF-8"})
+    @GetMapping(value = "/deleteAll", produces = {"application/json;charset=UTF-8"})
     String deleteAllUser();
 
-    @RequestMapping(value = "/selectUserWithPage", produces = {"application/json;charset=UTF-8"})
-    Map<String,Object> selectUserWithPage(Integer page, Integer limit);
+    @GetMapping(value = "/selectUserWithPage", produces = {"application/json;charset=UTF-8"})
+    Map<String,Object> selectUserWithPage(@RequestParam("page") Integer page, @RequestParam("limit") Integer limit);
 
     /**
      * 根据用户名和用户密码返回登录标识
@@ -77,7 +75,7 @@ public interface UserService {
         }
 
         @Override
-        public Map<String,Object> selectUserWithPage(Integer page, Integer limit) {
+        public Map<String,Object> selectUserWithPage(@RequestParam("page") Integer page, @RequestParam("limit") Integer limit) {
             return null;
         }
     }

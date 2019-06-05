@@ -17,7 +17,7 @@ import java.util.Scanner;
 @EnableDiscoveryClient //服务发现
 @EnableTransactionManagement /*开启事务管理*/
 @MapperScan("com.lc.clz.mapper")
-public class AdvanceProvider {
+public class AdvanceService {
 
 
     public static void main(String[] args){
@@ -25,6 +25,6 @@ public class AdvanceProvider {
         System.out.println("请输入端口号，为避免端口号重复，提供者服务请以9000端口开始，禁止使用占用端口启动...");
         Scanner scanner=new Scanner(System.in);
         String port=scanner.nextLine();
-        new SpringApplicationBuilder(AdvanceProvider.class).properties("server.port="+port).run(args);
+        new SpringApplicationBuilder(AdvanceService.class).properties("server.port="+port).run(args);
     }
 }
