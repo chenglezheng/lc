@@ -9,7 +9,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @EnableZuulProxy
 @SpringBootApplication
-@EnableFeignClients
 public class Zuul{
 
     public static void main(String[] args) {

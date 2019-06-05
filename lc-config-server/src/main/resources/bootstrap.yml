@@ -4,7 +4,7 @@ spring:
       server:
         git:
           uri: https://github.com/chenglezheng/lc-config-server.git
-          search-paths: ${APP_LOCATE:dev}
+          search-paths: ${APP_LOCATE:test}
           username: 981797842@qq.com
           password: Clz!981797842
   rabbitmq:
@@ -12,5 +12,3 @@ spring:
     port: 5672
     username: guest
     password: guest
-
-

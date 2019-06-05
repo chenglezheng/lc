@@ -1,15 +1,15 @@
 spring:
   cloud:
     config:
-      discovery:
-        service-id: lc-config-server
-        enabled: true
       label: master
+      discovery:
+        enabled: true
+        service-id: lc-config-server
       enabled: true
       fail-fast: true
-      profile: dev
+      profile: test
   rabbitmq:
-    port: 5672
     host: localhost
+    port: 5672
     username: guest
     password: guest
