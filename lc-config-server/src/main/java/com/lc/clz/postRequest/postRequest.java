@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @RestController
 @RefreshScope
-public class PostRequest {
+public class postRequest {
 
     @Autowired
     private RestTemplate restTemplate;
