@@ -6,10 +6,42 @@
 </head>
 
 <body>
-    <form method="post" action="/fastDFSUpload" enctype="multipart/form-data" >
+    <form method="post" action="/uploadFile" enctype="multipart/form-data" >
         <input type="file" name="file" >
         <input type="submit" value="上传文件" />
     </form>
-
+    <!--<input type="file" name="file" id="file">
+    <button onclick="upload()"></button>-->
 </body>
 </html>
+<!--
+<script>
+    function upload() {
+        console.log( getPath(document.getElementById("file")));
+    }
+    function getPath(obj)
+    {
+        if(obj)
+        {
+
+            if (window.navigator.userAgent.indexOf("MSIE")>=1)
+            {
+                obj.select();
+
+                return document.selection.createRange().text;
+            }
+
+            else if(window.navigator.userAgent.indexOf("Firefox")>=1)
+            {
+                if(obj.files)
+                {
+
+                    return obj.files.item(0).getAsDataURL();
+                }
+                return obj.value;
+            }
+            return obj.value;
+        }
+    }
+
+</script>-->
