@@ -1,8 +1,12 @@
 package com.lc.clz.entities;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private Long userId;
 
     private String userName;
