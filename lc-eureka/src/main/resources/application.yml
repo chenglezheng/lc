@@ -7,7 +7,7 @@ spring:
 eureka:
   server:
     enable-self-preservation: false  #设置自我保护模式（测试中，暂时关掉自我保护）
-    eviction-interval-timer-in-ms: 9000 #该字段代表每90s清理一次服务的注册表(此处注意，如要配置清除策略，则客户端需要配置对应的心态机制，否则不能立马看到实例被剔除的效果)
+    eviction-interval-timer-in-ms: 6000 #该字段代表每90s清理一次服务的注册表(此处注意，如要配置清除策略，则客户端需要配置对应的心态机制，否则不能立马看到实例被剔除的效果)
   instance:
     lease-renewal-interval-in-seconds: 3 #该字段代表每30s像服务器发送一次心跳
     lease-expiration-duration-in-seconds: 9  #该字段代表如果90s内没有接收到客户端发过来的心跳，则会从实例中清除掉这个实例
@@ -27,7 +27,7 @@ spring:
 eureka:
   server:
     enable-self-preservation: false  #设置自我保护模式（测试中，暂时关掉自我保护）
-    eviction-interval-timer-in-ms: 9000 #该字段代表每90s清理一次服务的注册表(此处注意，如要配置清除策略，则客户端需要配置对应的心态机制，否则不能立马看到实例被剔除的效果)
+    eviction-interval-timer-in-ms: 6000 #该字段代表每90s清理一次服务的注册表(此处注意，如要配置清除策略，则客户端需要配置对应的心态机制，否则不能立马看到实例被剔除的效果)
   instance:
     lease-renewal-interval-in-seconds: 3 #该字段代表每3s像服务器发送一次心跳
     lease-expiration-duration-in-seconds: 9  #该字段代表如果90s内没有接收到客户端发过来的心跳，则会从实例中清除掉这个实例

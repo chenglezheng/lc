@@ -78,7 +78,7 @@ public class UserController {
 
     @GetMapping(value = "/test/bus/refresh")
     public String testBusRefresh(){
-        return username+"123";
+        return username;
     }
 
 }

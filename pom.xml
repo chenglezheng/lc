@@ -113,6 +113,7 @@
         <module>lc-advance-service</module>
         <module>lc-config-server</module>
         <module>lc-quartz</module>
+        <module>lc-auth-center</module>
     </modules>
 
 </project>

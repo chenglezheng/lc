@@ -1,0 +1,36 @@
+server:
+  port: 7000
+spring:
+  application:
+    name: lc-auth-center
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true     #访问路径可以显示IP地址
+    lease-renewal-interval-in-seconds: 30 #该字段代表每ns像服务器发送一次心跳
+    lease-expiration-duration-in-seconds: 90  #该字段代表如果ns内没有接收到客户端发过来的心跳，则会从实例中清除掉这个实例
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/
+#info需要显示的信息
+info:
+  app.name: lc-auth-center
+  company.name: www.chenglezheng.com
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
+
+security:
+  oauth2:
+    client:
+      client-id: lc
+      client-secret: lc.com
+      registered-redirect-uri: http://localhost:8090/hello
+
+jarvis:
+  security:
+    oauth2:
+      authorized-grant-types: authorization_code,password,refresh_token
+      jwt:
+        signing-key: lc.com
+        additional-information:
+          company: lc
