@@ -106,11 +106,10 @@
     <modules>
         <module>lc-eureka</module>
         <module>lc-basic-service</module>
-        <module>lc-invoker</module>
         <module>lc-hystrix-monitor</module>
         <module>lc-zuul</module>
         <module>lc-common</module>
-        <module>lc-advance-service</module>
+        <module>lc-user-center</module>
         <module>lc-config-server</module>
         <module>lc-quartz</module>
         <module>lc-auth-center</module>

@@ -2,7 +2,7 @@
 #fdfs:
 #  so-timeout: 1501
 #  connect-timeout: 601
-#  thumb-image:   #����ͼ���ɲ���
+#  thumb-image:
 #    width: 150
 #    height: 150
 #  tracker-list: 192.168.254.128:22122
@@ -10,17 +10,17 @@
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+      defaultZone: http://lc.eureka.com:8761/eureka/,http://lc.eureka.com:8762/eureka/
 spring:
   application:
     name: lc-upload
   datasource:
     name: lc-mybatis
-    #    url: jdbc:mysql://192.168.166.160:3306/lc
-    url: jdbc:mysql://127.0.0.1:3306/south
     username: root
-    password: root
-
+    url: jdbc:mysql://lc.mysql.com:3306/lc
+    password: clz123456
+    #url: jdbc:mysql://lc.mysql.com/south
+    #password: root
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     filters: stat,wall,log4j

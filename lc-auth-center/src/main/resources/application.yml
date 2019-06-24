@@ -3,6 +3,45 @@ server:
 spring:
   application:
     name: lc-auth-center
+  redis:
+      host: lc.redis.com
+      port: 6379
+      password: clz123456
+      timeout: 10
+      lettuce:
+        pool:
+          min-idle: 0
+          max-idle: 8
+          max-active: 8
+          max-wait: -1
+  datasource:
+      name: lc-mybatis
+      url: jdbc:mysql://lc.mysql.com/lc
+      username: root
+      password: clz123456
+      # 使用druid数据源
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver
+      filters: stat,wall,log4j # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      initialSize: 5 # 初始化大小
+      maxActive: 20 # 最大
+      minIdle: 5 # 最小
+      maxWait: 60000 # 配置获取连接等待超时的时间
+      timeBetweenEvictionRunsMillis: 60000 # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      minEvictableIdleTimeMillis: 300000 # 配置一个连接在池中最小生存的时间，单位是毫秒
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true # 打开PSCache，并且指定每个连接上PSCache的大小
+      maxOpenPreparedStatements: 20 # 打开PSCache，并且指定每个连接上PSCache的大小
+      connectionProperties :
+        duird:
+          stat:
+            mergeSql: true
+            slowSqlMillis: 5000 # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      useGlobalDataSourceStat: true  #合并多个DruidDataSource的监控数据(暂时不明白时什么意思，也没有测试出来)
+      #cachePrepStmts: true  # 开启二级缓存
 eureka:
   instance:
     instance-id: ${spring.cloud.client.ipAddress}:${server.port}
@@ -11,7 +50,7 @@ eureka:
     lease-expiration-duration-in-seconds: 90  #该字段代表如果ns内没有接收到客户端发过来的心跳，则会从实例中清除掉这个实例
   client:
     serviceUrl:
-      defaultZone: http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/
+      defaultZone: http://lc.eureka.com:8761/eureka/,http://lc.eureka.com:8762/eureka/
 #info需要显示的信息
 info:
   app.name: lc-auth-center
@@ -19,18 +58,19 @@ info:
   build.artifactId: ${project.artifactId}
   build.version: ${project.version}
 
-security:
-  oauth2:
-    client:
-      client-id: lc
-      client-secret: lc.com
-      registered-redirect-uri: http://localhost:8090/hello
 
-jarvis:
-  security:
-    oauth2:
-      authorized-grant-types: authorization_code,password,refresh_token
-      jwt:
-        signing-key: lc.com
-        additional-information:
-          company: lc
+access_token:
+  store-jwt: false
+  jwt-signing-key: cheng@le@zheng=$==+_+%0%:)(:)
+  add-userinfo: false
+feign:
+  hystrix :
+    enabled: true
+    command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillseconds: 2000 #线程超时,调用Fallback方法
+      circuitBreaker:
+        requestVolumeThreshold: 3 #10秒内出现3个以上请求(已临近阀值),并且出错率在50%以上,开启断路器.断开服务,调用Fallback方法

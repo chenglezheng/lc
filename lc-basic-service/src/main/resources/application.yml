@@ -3,7 +3,7 @@ spring:
     name: lc-basic-service
   datasource:
     name: lc-mybatis
-    url: jdbc:mysql://192.168.166.160:3306/lc
+    url: jdbc:mysql://lc.mysql.com:3306/lc
     username: root
     password: clz
 #    url: jdbc:mysql://127.0.0.1:3306/south
@@ -41,7 +41,7 @@ eureka:
   client:
     initial-instance-info-replication-interval-seconds: 6
     serviceUrl:
-      defaultZone: http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/
+      defaultZone: http://lc.eureka.com:8761/eureka/,http://lc.eureka.com:8762/eureka/
 
 ## 该配置节点为独立的节点，有很多同学容易将这个配置放在spring的节点下，导致配置无法被识别
 mybatis:

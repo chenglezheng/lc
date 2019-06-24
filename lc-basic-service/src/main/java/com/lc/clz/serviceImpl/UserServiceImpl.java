@@ -2,10 +2,10 @@ package com.lc.clz.serviceImpl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.lc.clz.mapper.UserMapper;
+import com.lc.clz.dao.UserDao;
 import com.lc.clz.entities.User;
 import com.lc.clz.service.UserService;
-import com.lc.clz.utils.RedisUtil;
+import com.lc.clz.utils.RedisUtils;
 import com.lc.clz.utils.TableUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
@@ -28,10 +28,10 @@ import java.util.Map;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserMapper userMapper;
+    private UserDao userMapper;
 
     @Autowired
-    private RedisUtil redisUtil;
+    private RedisUtils redisUtil;
 
     private  final  String  PREFIX ="Basic_Provider_UserServiceImpl_";
 

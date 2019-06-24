@@ -1,7 +1,7 @@
 package com.lc.clz.config;
 
 
-import com.lc.clz.utils.RedisUtil;
+import com.lc.clz.utils.RedisUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -133,15 +133,15 @@ public class RedisConfig {
     /**
      * 注入封装RedisTemplate
      *
-     * @return RedisUtil
+     * @return RedisUtils
      * @throws
      * @Title: redisUtil
      * @autor lpl
      * @date 2017年12月21日
      */
     @Bean(name = "redisUtil")
-    public RedisUtil redisUtil(RedisTemplate<String, Object> redisTemplate) {
-        RedisUtil redisUtil = new RedisUtil();
+    public RedisUtils redisUtil(RedisTemplate<String, Object> redisTemplate) {
+        RedisUtils redisUtil = new RedisUtils();
         redisUtil.setRedisTemplate(redisTemplate);
         return redisUtil;
     }

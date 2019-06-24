@@ -9,7 +9,7 @@ spring:
       fail-fast: true
       profile: test
   rabbitmq:
-    host: localhost
+    host: lc.rabbit.com
     port: 5672
     username: guest
     password: guest

@@ -11,14 +11,16 @@ eureka:
     lease-expiration-duration-in-seconds: 90  #该字段代表如果6s内没有接收到客户端发过来的心跳，则会从实例中清除掉这个实例
   client:
     serviceUrl:
-      defaultZone: http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/
+      defaultZone: http://lc.eureka.com:8761/eureka/,http://lc.eureka.com:8762/eureka/
 zuul:
   host:
     max-total-connections: 200
     max-per-route-connections: 20
   routes:
-    lc-invoker:
-      path: /lc/**
+    lc-user-center:
+      path: /lc/usercenter/**
+    lc-auth-center:
+      path: /lc/authcenter/**
 management:
   endpoints:
     web:
