@@ -1,0 +1,7 @@
+#cloud配置
+192.168.166.160 lc.mysql.com
+192.168.166.160 lc.redis.com
+127.0.0.1 lc.rabbit.com
+127.0.0.1 lc.eureka.com
+127.0.0.1 lc.config.com
+127.0.0.1 lc.oauth.com

@@ -6,10 +6,11 @@ spring:
     name: lc-quartz
   datasource:
     name: lc-mybatis
-    #    url: jdbc:mysql://192.168.166.160:3306/lc
-    url: jdbc:mysql://127.0.0.1:3306/south
     username: root
-    password: root
+    url: jdbc:mysql://lc.mysql.com:3306/lc
+    password: clz123456
+    #url: jdbc:mysql://lc.mysql.com/south
+    #password: root
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
@@ -36,7 +37,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+      defaultZone: http://lc.eureka.com:8761/eureka/,http://lc.eureka.com:8762/eureka/
 mybatis:
   mapper-locations: classpath:mappers/*.xml
   type-aliases-package: com.lc.clz.entity

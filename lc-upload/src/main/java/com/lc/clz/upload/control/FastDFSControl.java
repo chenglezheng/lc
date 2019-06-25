@@ -29,11 +29,11 @@ public class FastDFSControl {
 
     @RequestMapping("/uploadFile")
     @ResponseBody
-    public String uploadFile(MultipartFile file, HttpServletRequest request) throws Exception {
-        FastDFSClient ffc = new FastDFSClient(trackerServerUrl);
+    public String uploadFile(MultipartFile file) throws Exception {
+        FastDFSClient  fastDFSClient= new FastDFSClient(trackerServerUrl);
         String fileName = file.getOriginalFilename();
         String fileType = fileName.substring(fileName.lastIndexOf("."),fileName.length());
-        String[] url = ffc.uploadFile(fileName,fileType,null);
+        String[] url = fastDFSClient.uploadFile(fileName,fileType,null);
         String urlAll="";
         for (String string:url) {
             urlAll+="/"+string;

@@ -8,7 +8,7 @@ spring:
           username: 981797842@qq.com
           password: Clz!981797842
   rabbitmq:
-    host: localhost
+    host: lc.rabbit.com
     port: 5672
     username: guest
     password: guest

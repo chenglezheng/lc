@@ -12,7 +12,7 @@ eureka:
   client:
     initial-instance-info-replication-interval-seconds: 6
     serviceUrl:
-      defaultZone: http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/
+      defaultZone: http://lc.eureka.com:8761/eureka/,http://lc.eureka.com:8762/eureka/
 
 #info需要显示的信息
 info:
