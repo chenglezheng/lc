@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="lc.clz.logcenter.dao.logDao">
+
+    <insert id="saveLog"  parameterType="com.lc.clz.entities.Log">
+        insert into t_log values(null,#{username},#{module},#{params},#{remark},#{flag},#{createTime})
+    </insert>
+
+    <select id="findLogs" resultType="com.lc.clz.entities.Log">
+        select * from t_log where `module` = #{module}
+    </select>
+
+</mapper>

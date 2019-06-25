@@ -1,0 +1,16 @@
+
+server:
+  port: 9006
+spring:
+  application:
+    name: lc-logcenter
+  rabbitmq:
+    host: localhost
+    password: guest
+    username: guest
+    port: 5672
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/
+
