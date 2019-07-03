@@ -1,6 +1,6 @@
 package lc.clz.logcenter.service.impl;
 
-import com.lc.clz.entities.Log;
+import com.lc.clz.entities.log.Log;
 import lc.clz.logcenter.service.logService;
 import org.springframework.stereotype.Service;
 

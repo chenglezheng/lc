@@ -1,6 +1,6 @@
 package lc.clz.logcenter.service;
 
-import com.lc.clz.entities.Log;
+import com.lc.clz.entities.log.Log;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.lc.clz.log.constants;
+package com.lc.clz.entities.log.constants;
 
 import java.util.HashMap;
 import java.util.Map;

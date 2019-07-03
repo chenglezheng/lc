@@ -1,4 +1,4 @@
-package com.lc.clz.druidMonitor;
+package com.lc.clz.druid;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 import javax.servlet.annotation.WebInitParam;

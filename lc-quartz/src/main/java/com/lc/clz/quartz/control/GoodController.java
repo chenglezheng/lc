@@ -1,6 +1,6 @@
 package com.lc.clz.quartz.control;
 
-import com.lc.clz.entities.BaseGoodInfo;
+import com.lc.clz.entities.user.BaseGoodInfo;
 import com.lc.clz.quartz.service.GoodInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

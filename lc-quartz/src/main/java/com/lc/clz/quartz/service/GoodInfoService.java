@@ -1,6 +1,6 @@
 package com.lc.clz.quartz.service;
 
-import com.lc.clz.entities.BaseGoodInfo;
+import com.lc.clz.entities.user.BaseGoodInfo;
 
 /**
  * @author shenjiang

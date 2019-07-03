@@ -1,6 +1,6 @@
 package com.lc.clz.quartz.serviceimpl;
 
-import com.lc.clz.entities.BaseGoodInfo;
+import com.lc.clz.entities.user.BaseGoodInfo;
 import com.lc.clz.quartz.dao.BaseGoodInfoDao;
 import com.lc.clz.quartz.service.GoodInfoService;
 import com.lc.clz.quartz.timer.GoodAddTimer;

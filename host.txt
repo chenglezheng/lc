@@ -5,3 +5,5 @@
 127.0.0.1 lc.eureka.com
 127.0.0.1 lc.config.com
 127.0.0.1 lc.oauth.com
+127.0.0.1 lc.auth.com
+127.0.0.1 lc.resource.com

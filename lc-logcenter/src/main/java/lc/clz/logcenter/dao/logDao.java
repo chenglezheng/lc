@@ -1,6 +1,6 @@
 package lc.clz.logcenter.dao;
 
-import com.lc.clz.entities.Log;
+import com.lc.clz.entities.log.Log;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

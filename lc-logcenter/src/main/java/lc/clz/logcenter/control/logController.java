@@ -1,6 +1,6 @@
 package lc.clz.logcenter.control;
 
-import com.lc.clz.entities.Log;
+import com.lc.clz.entities.log.Log;
 import lc.clz.logcenter.service.logService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

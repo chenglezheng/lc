@@ -1,4 +1,4 @@
-package com.lc.clz.log;
+package com.lc.clz.entities.log;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
