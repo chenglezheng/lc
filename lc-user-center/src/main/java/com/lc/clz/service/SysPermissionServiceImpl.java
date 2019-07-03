@@ -1,9 +1,9 @@
-package com.lc.clz.service.impl;
+package com.lc.clz.service;
 
 import com.lc.clz.dao.RolePermissionDao;
 import com.lc.clz.dao.SysPermissionDao;
 import com.lc.clz.entities.Page;
-import com.lc.clz.entities.SysPermission;
+import com.lc.clz.entities.user.SysPermission;
 import com.lc.clz.service.SysPermissionService;
 import com.lc.clz.utils.PageUtils;
 import lombok.extern.slf4j.Slf4j;

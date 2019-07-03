@@ -1,6 +1,6 @@
 package com.lc.clz.controller;
 
-import com.lc.clz.entities.User;
+import com.lc.clz.entities.user.User;
 import com.lc.clz.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

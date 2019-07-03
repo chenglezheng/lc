@@ -20,7 +20,7 @@
 		<include refid="where" />
 	</select>
 
-	<select id="findData" resultType="com.lc.clz.entities.SysPermission">
+	<select id="findData" resultType="com.lc.clz.entities.user.SysPermission">
 		select * from sys_permission t
 		<include refid="where" />
 		order by t.id desc

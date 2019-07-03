@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.util.Scanner;
@@ -17,6 +18,7 @@ import java.util.Scanner;
 @EnableDiscoveryClient //服务发现
 @EnableTransactionManagement /*开启事务管理*/
 @MapperScan("com.lc.clz.dao")  //扫描mapper，否则启动会报找不到mapper
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class UserCenter {
 
 

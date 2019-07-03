@@ -1,10 +1,10 @@
 package com.lc.clz.controller;
 
-import com.lc.clz.entities.AppUser;
-import com.lc.clz.entities.LoginAppUser;
 import com.lc.clz.entities.Page;
-import com.lc.clz.entities.SysRole;
-import com.lc.clz.log.LogAnnotation;
+import com.lc.clz.entities.user.AppUser;
+import com.lc.clz.entities.user.LoginAppUser;
+import com.lc.clz.entities.user.SysRole;
+import com.lc.clz.entities.log.LogAnnotation;
 import com.lc.clz.service.AppUserService;
 import com.lc.clz.utils.AppUserUtils;
 import io.swagger.annotations.Api;
@@ -12,8 +12,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.oauth2.common.OAuth2AccessToken;
+import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.Map;
 import java.util.Set;
 
