@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lc.clz.dao.UserDao" >
-  <resultMap id="BaseResultMap" type="com.lc.clz.entities.User" >
+  <resultMap id="BaseResultMap" type="com.lc.clz.entities.user.User" >
     <id column="USER_ID" property="userId" jdbcType="BIGINT" />
     <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
     <result column="USER_PWD" property="userPwd" jdbcType="VARCHAR" />
@@ -35,7 +35,7 @@
     delete from USER
     where USER_ID = #{userId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.lc.clz.entities.User" >
+  <insert id="insert" parameterType="com.lc.clz.entities.user.User" >
     insert into USER (USER_ID, USER_NAME, USER_PWD, 
       USER_PHONE, USER_QQ, USER_WECHAT, 
       USER_EMAIL, USER_SEX, USER_AGE, 
@@ -47,7 +47,7 @@
       #{userAddress,jdbcType=VARCHAR}, #{userRole,jdbcType=INTEGER}, #{userLeftMoney,jdbcType=DECIMAL}, 
       #{userRealName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lc.clz.entities.User" >
+  <insert id="insertSelective" parameterType="com.lc.clz.entities.user.User" >
     insert into USER
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userId != null" >
@@ -132,7 +132,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lc.clz.entities.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.lc.clz.entities.user.User" >
     update USER
     <set >
       <if test="userName != null" >
@@ -174,7 +174,7 @@
     </set>
     where USER_ID = #{userId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lc.clz.entities.User" >
+  <update id="updateByPrimaryKey" parameterType="com.lc.clz.entities.user.User" >
     update USER
     set USER_NAME = #{userName,jdbcType=VARCHAR},
       USER_PWD = #{userPwd,jdbcType=VARCHAR},

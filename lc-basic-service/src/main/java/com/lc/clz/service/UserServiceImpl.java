@@ -1,9 +1,9 @@
-package com.lc.clz.serviceImpl;
+package com.lc.clz.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lc.clz.dao.UserDao;
-import com.lc.clz.entities.User;
+import com.lc.clz.entities.user.User;
 import com.lc.clz.service.UserService;
 import com.lc.clz.utils.RedisUtils;
 import com.lc.clz.utils.TableUtils;

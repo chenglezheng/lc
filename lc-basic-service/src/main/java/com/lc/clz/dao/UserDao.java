@@ -1,6 +1,6 @@
 package com.lc.clz.dao;
 
-import com.lc.clz.entities.User;
+import com.lc.clz.entities.user.User;
 
 import java.util.List;
 

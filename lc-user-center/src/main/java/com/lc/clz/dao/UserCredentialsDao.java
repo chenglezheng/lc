@@ -1,9 +1,8 @@
 package com.lc.clz.dao;
 
-import com.lc.clz.entities.AppUser;
-import com.lc.clz.entities.UserCredential;
+import com.lc.clz.entities.user.AppUser;
+import com.lc.clz.entities.user.UserCredential;
 import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 public interface UserCredentialsDao {
