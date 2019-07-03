@@ -1,12 +1,13 @@
 package com.lc.clz.config;
 
-import com.lc.clz.service.impl.RedisAuthorizationCodeServices;
+import com.lc.clz.service.impl.RedisAuthorizationCodeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -14,8 +15,6 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
-
-import javax.sql.DataSource;
 
 /**
  * 授权服务器配置
@@ -40,7 +39,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private boolean storeWithJwt;
 
     @Autowired
-    private RedisAuthorizationCodeServices redisAuthorizationCodeServices;
+    private RedisAuthorizationCodeServiceImpl redisAuthorizationCodeServices;
 
     /**
      * 存储令牌（access_token）
@@ -86,6 +85,5 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .accessTokenValiditySeconds(10000) //token过期时间
                 .refreshTokenValiditySeconds(10000); //refresh过期时间
     }
-
 
 }

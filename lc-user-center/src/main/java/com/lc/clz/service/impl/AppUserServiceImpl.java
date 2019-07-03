@@ -1,4 +1,4 @@
-package com.lc.clz.service;
+package com.lc.clz.service.impl;
 
 import com.lc.clz.constants.CredentialType;
 import com.lc.clz.constants.UserType;
