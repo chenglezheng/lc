@@ -1,6 +1,6 @@
 package com.lc.clz.upload.control;
 
-import com.lc.clz.entities.User;
+import com.lc.clz.entities.user.User;
 import com.lc.clz.utils.SerializeUtil;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;

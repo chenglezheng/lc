@@ -1,8 +1,7 @@
 package lc.clz.logcenter.mq;
 
-import com.lc.clz.entities.Log;
+import com.lc.clz.entities.log.Log;
 import lc.clz.logcenter.service.logService;
-import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;

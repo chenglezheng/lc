@@ -16,7 +16,7 @@
 		<include refid="where" />
 	</select>
 
-	<select id="findData" resultType="com.lc.clz.entities.SysRole">
+	<select id="findData" resultType="com.lc.clz.entities.user.SysRole">
 		select * from sys_role t
 		<include refid="where" />
 		order by t.id desc

@@ -15,7 +15,7 @@
 		</where>
 	</delete>
 
-	<select id="findPermissionsByRoleIds" resultType="com.lc.clz.entities.SysPermission">
+	<select id="findPermissionsByRoleIds" resultType="com.lc.clz.entities.user.SysPermission">
 		select p.* from
 		sys_permission p
 		inner join sys_role_permission rp on

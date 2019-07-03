@@ -1,8 +1,7 @@
 package com.lc.clz.dao;
 
-import com.lc.clz.entities.SysPermission;
+import com.lc.clz.entities.user.SysPermission;
 import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Set;

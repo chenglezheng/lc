@@ -27,7 +27,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 				.authenticationEntryPoint(
 						(request, response, authException) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED))
 				.and().authorizeRequests()
-				.antMatchers(PermitUrlUtils.permitAllUrl("/users-anon/**", "/wechat/**")).permitAll() // 放开权限的url
+				.antMatchers(PermitUrlUtils.permitAllUrl()).permitAll() // 放开权限的url
 				.anyRequest().authenticated().and().httpBasic();
 	}
 
