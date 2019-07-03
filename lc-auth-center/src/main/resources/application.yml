@@ -61,8 +61,8 @@ info:
 
 access_token:
   store-jwt: false
-  jwt-signing-key: cheng@le@zheng=$==+_+%0%:)(:)
-  add-userinfo: false
+
+
 feign:
   hystrix :
     enabled: true
@@ -74,3 +74,16 @@ feign:
             timeoutInMillseconds: 2000 #线程超时,调用Fallback方法
       circuitBreaker:
         requestVolumeThreshold: 3 #10秒内出现3个以上请求(已临近阀值),并且出错率在50%以上,开启断路器.断开服务,调用Fallback方法
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+security:
+  oauth2:
+    resource:
+      filter-order: 3

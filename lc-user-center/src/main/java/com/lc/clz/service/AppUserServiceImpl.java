@@ -1,11 +1,12 @@
-package com.lc.clz.service.impl;
+package com.lc.clz.service;
 
 import com.lc.clz.constants.CredentialType;
 import com.lc.clz.constants.UserType;
 import com.lc.clz.dao.AppUserDao;
 import com.lc.clz.dao.UserCredentialsDao;
 import com.lc.clz.dao.UserRoleDao;
-import com.lc.clz.entities.*;
+import com.lc.clz.entities.Page;
+import com.lc.clz.entities.user.*;
 import com.lc.clz.service.AppUserService;
 import com.lc.clz.service.SysPermissionService;
 import com.lc.clz.utils.PageUtils;

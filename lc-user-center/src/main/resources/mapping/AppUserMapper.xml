@@ -54,7 +54,7 @@
 		<include refid="where" />
 	</select>
 
-	<select id="findData" resultType="com.lc.clz.entities.AppUser">
+	<select id="findData" resultType="com.lc.clz.entities.user.AppUser">
 		select * from app_user t
 		<include refid="where" />
 		order by t.id desc

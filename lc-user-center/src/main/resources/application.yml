@@ -60,8 +60,12 @@ info:
   company.name: www.chenglezheng.com
   build.artifactId: ${project.artifactId}
   build.version: ${project.version}
-security:
-  oauth2:
-    resource:
-      user-info-uri: http://localhost:7000/user
-      prefer-token-info: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

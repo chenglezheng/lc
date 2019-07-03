@@ -16,15 +16,23 @@ zuul:
   host:
     max-total-connections: 200
     max-per-route-connections: 20
+  ignored-services: '*' #避免所有接口暴露
+  prefix: /lc/api #设置公共前缀
   routes:
     lc-user-center:
-      path: /lc/usercenter/**
+      path: /usercenter/**
     lc-auth-center:
-      path: /lc/authcenter/**
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"   #2.0.X版本以上需要加这段配置，原因：以上版本没有暴露所有HTTP端口
-  security:
-    enabled: false  #关掉安全访问，否则/refresh没有访问权
+      path: /authcenter/**
+    lc-basic-service:
+      path: /basicservice/**
+  add-proxy-headers: true
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      accessTokenUri: http://lc.auth.com:7000/oauth/token
+      userAuthorizationUri: http://lc.auth.com:7000/oauth/authorize
+    resource:
+      userInfoUri: http://lc.auth.com:7000/user
+      prefer-token-info: false

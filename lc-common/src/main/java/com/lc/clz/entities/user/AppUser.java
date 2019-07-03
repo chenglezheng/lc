@@ -1,4 +1,4 @@
-package com.lc.clz.entities;
+package com.lc.clz.entities.user;
 
 import lombok.Data;
 

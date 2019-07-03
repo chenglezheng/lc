@@ -1,7 +1,7 @@
 package com.lc.clz.utils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.lc.clz.entities.LoginAppUser;
+import com.lc.clz.entities.user.LoginAppUser;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
