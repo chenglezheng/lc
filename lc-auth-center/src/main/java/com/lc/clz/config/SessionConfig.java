@@ -7,7 +7,7 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
  *
  *
  */
-/*@EnableRedisHttpSession*/
+@EnableRedisHttpSession
 public class SessionConfig {
 
 }

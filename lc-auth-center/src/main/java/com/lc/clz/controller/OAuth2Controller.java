@@ -32,6 +32,11 @@ public class OAuth2Controller {
         return principal;
     }
 
+    @GetMapping("/users/current")
+    public String test() {
+       return "111";
+    }
+
     @Autowired
     private TokenStore tokenStore;
 

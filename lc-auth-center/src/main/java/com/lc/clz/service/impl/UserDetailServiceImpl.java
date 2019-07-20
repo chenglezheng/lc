@@ -28,9 +28,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
     @Autowired
     private UserClient userClient;
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
-
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -50,26 +47,11 @@ public class UserDetailServiceImpl implements UserDetailsService {
             CredentialType credentialType = CredentialType.valueOf(params[1]);
             if (CredentialType.PHONE == credentialType) {// 短信登录
             } else if (CredentialType.WECHAT_OPENID == credentialType) {// 微信登陆
-                handlerWechatLogin(loginAppUser, params);
+
             }
         }
 
         return loginAppUser;
-    }
-
-    private void handlerWechatLogin(LoginAppUser loginAppUser, String[] params) {
-        if (params.length < 3) {
-            throw new IllegalArgumentException("非法请求");
-        }
-
-        String openid = params[0];
-        String tempCode = params[2];
-
-
-
-        // 其实这里是将密码重置，网关层的微信登录接口，密码也用同样规则即可
-        loginAppUser.setPassword(passwordEncoder.encode(tempCode));
-        log.info("微信登陆，{},{}", loginAppUser, openid);
     }
 
 

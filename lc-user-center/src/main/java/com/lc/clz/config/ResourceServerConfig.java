@@ -1,11 +1,8 @@
 package com.lc.clz.config;
 
 import com.lc.clz.utils.PermitUrlUtils;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 
@@ -16,9 +13,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  *
  */
+@Configuration
 @EnableResourceServer
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 	@Override
@@ -31,9 +27,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 				.anyRequest().authenticated().and().httpBasic();
 	}
 
-	@Bean
-	public BCryptPasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+
 
 }

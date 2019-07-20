@@ -10,11 +10,10 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
 
     @Autowired
     public UserDetailsService userDetailsService;
@@ -58,22 +57,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        // 密码加密
-        // return new BCryptPasswordEncoder();
-        // 不加密密码
-        return new PasswordEncoder() {
-
-            @Override
-            public String encode(CharSequence charSequence) {
-                return charSequence.toString();
-            }
-
-            @Override
-            public boolean matches(CharSequence charSequence, String s) {
-                return true;
-            }
-        };
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }
 

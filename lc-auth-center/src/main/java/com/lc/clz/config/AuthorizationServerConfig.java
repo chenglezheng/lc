@@ -56,7 +56,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.authenticationManager(this.authenticationManager);
-        endpoints.tokenStore(tokenStore());
+        endpoints.tokenStore(new RedisTokenStore(redisConnectionFactory));
         endpoints.authorizationCodeServices(redisAuthorizationCodeServices);
 
     }
@@ -64,7 +64,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security.allowFormAuthenticationForClients(); // 允许表单形式的认证
+        security.allowFormAuthenticationForClients().checkTokenAccess("permitAll()"); // 允许表单形式的认证
     }
 
 

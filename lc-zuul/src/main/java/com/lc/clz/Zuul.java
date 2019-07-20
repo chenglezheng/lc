@@ -17,5 +17,4 @@ public class Zuul{
         new SpringApplicationBuilder(Zuul.class).run(args);
     }
 
-
 }

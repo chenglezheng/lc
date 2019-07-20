@@ -17,15 +17,19 @@ zuul:
     max-total-connections: 200
     max-per-route-connections: 20
   ignored-services: '*' #避免所有接口暴露
-  prefix: /lc/api #设置公共前缀
+  prefix: /lc #设置公共前缀
+  sensitiveHeaders:
   routes:
     lc-user-center:
-      path: /usercenter/**
+      path: /user/**
+      sensitiveHeaders:
     lc-auth-center:
-      path: /authcenter/**
+      path: /auth/**
+      sensitiveHeaders:
     lc-basic-service:
       path: /basicservice/**
   add-proxy-headers: true
+
 security:
   basic:
     enabled: false

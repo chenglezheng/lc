@@ -69,3 +69,9 @@ management:
   endpoint:
     health:
       show-details: always
+security:
+  oauth2:
+    resource:
+      id: lc-user-center
+      user-info-uri: http://lc.auth.com:7000/user
+      prefer-token-info: false

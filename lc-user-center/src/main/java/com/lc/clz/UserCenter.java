@@ -8,8 +8,6 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import java.util.Scanner;
-
 /**
  * Created by chenglezheng on 2018/12/28.
  */
