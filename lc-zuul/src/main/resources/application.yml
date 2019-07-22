@@ -10,14 +10,15 @@ eureka:
     lease-renewal-interval-in-seconds: 30 #该字段代表每2s像服务器发送一次心跳
     lease-expiration-duration-in-seconds: 90  #该字段代表如果6s内没有接收到客户端发过来的心跳，则会从实例中清除掉这个实例
   client:
+    initial-instance-info-replication-interval-seconds: 6
     serviceUrl:
       defaultZone: http://lc.eureka.com:8761/eureka/,http://lc.eureka.com:8762/eureka/
 zuul:
   host:
     max-total-connections: 200
     max-per-route-connections: 20
-  ignored-services: '*' #避免所有接口暴露
-  prefix: /lc #设置公共前缀
+#  ignored-services: '*' #避免所有接口暴露
+#  prefix: /lc #设置公共前缀
   sensitiveHeaders:
   routes:
     lc-user-center:
@@ -33,6 +34,7 @@ zuul:
 security:
   basic:
     enabled: false
+    path: /swagger-ui.html
   oauth2:
     client:
       accessTokenUri: http://lc.auth.com:7000/oauth/token
@@ -40,3 +42,6 @@ security:
     resource:
       userInfoUri: http://lc.auth.com:7000/user
       prefer-token-info: false
+  user:
+    name: admin
+    password: admin

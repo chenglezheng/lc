@@ -2,12 +2,8 @@ spring:
   cloud:
     config:
       label: master
-      discovery:
-        enabled: true
-        service-id: lc-config-server
-      enabled: true
-      fail-fast: true
       profile: test
+      uri: http://192.168.166.128:8888/
   rabbitmq:
     host: lc.rabbit.com
     port: 5672
