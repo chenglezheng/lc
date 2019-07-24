@@ -27,14 +27,11 @@ zuul:
     lc-auth-center:
       path: /auth/**
       sensitiveHeaders:
-    lc-basic-service:
-      path: /basicservice/**
   add-proxy-headers: true
 
 security:
   basic:
     enabled: false
-    path: /swagger-ui.html
   oauth2:
     client:
       accessTokenUri: http://lc.auth.com:7000/oauth/token
@@ -42,6 +39,3 @@ security:
     resource:
       userInfoUri: http://lc.auth.com:7000/user
       prefer-token-info: false
-  user:
-    name: admin
-    password: admin

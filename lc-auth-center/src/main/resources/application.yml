@@ -86,4 +86,4 @@ management:
 security:
   oauth2:
     resource:
-      filter-order: 3
+      filter-order: 3  #不加此配置，zuul无法正常认证服务
