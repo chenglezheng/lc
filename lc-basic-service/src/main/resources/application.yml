@@ -76,3 +76,10 @@ management:
         include: "*"   #2.0.X版本以上需要加这段配置，原因：以上版本没有暴露所有HTTP端口
   security:
     enabled: false  #关掉安全访问，否则/refresh没有访问权
+
+security:
+  oauth2:
+    resource:
+      id: lc-user-center
+      user-info-uri: http://lc.auth.com:7000/user
+      prefer-token-info: false

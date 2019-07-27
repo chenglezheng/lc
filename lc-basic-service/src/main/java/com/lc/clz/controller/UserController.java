@@ -2,6 +2,7 @@ package com.lc.clz.controller;
 
 import com.lc.clz.entities.user.User;
 import com.lc.clz.service.UserService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import java.util.Map;
 
 
 @RestController
+@Api(description = "基础服务")
 public class UserController {
 
     @Autowired

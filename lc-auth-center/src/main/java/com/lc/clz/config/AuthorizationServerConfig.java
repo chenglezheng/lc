@@ -64,7 +64,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security.allowFormAuthenticationForClients().checkTokenAccess("permitAll()"); // 允许表单形式的认证
+        security.allowFormAuthenticationForClients()/*.checkTokenAccess("permitAll()")*/; // 允许表单形式的认证
     }
 
 

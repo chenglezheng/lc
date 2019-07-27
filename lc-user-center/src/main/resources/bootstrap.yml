@@ -3,7 +3,7 @@ spring:
     config:
       label: master
       profile: test
-      uri: http://192.168.166.128:8888/
+      uri: http://lc.config.com:8888/
   rabbitmq:
     host: lc.rabbit.com
     port: 5672

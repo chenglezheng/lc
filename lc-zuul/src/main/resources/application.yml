@@ -21,12 +21,15 @@ zuul:
 #  prefix: /lc #设置公共前缀
   routes:
     lc-user-center:
-      path: /user/**
+      path: /lc-user-center/**   # 此处地址必须配置与服务id一致，否则swagger的配置无法访问到正确地址
       sensitiveHeaders:
     lc-auth-center:
-      path: /auth/**
+      path: /lc-auth-center/** # 此处地址必须配置与服务id一致，否则swagger的配置无法访问到正确地址
       sensitiveHeaders:
-#  add-proxy-headers: true
+    lc-basic-service:
+      path: /lc-basic-service/** # 此处地址必须配置与服务id一致，否则swagger的配置无法访问到正确地址
+      sensitiveHeaders:
+  add-proxy-headers: true
 
 security:
   basic:

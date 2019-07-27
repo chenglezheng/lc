@@ -2,11 +2,7 @@ spring:
   cloud:
     config:
       label: master
-      discovery:
-        enabled: true
-        service-id: lc-config-server
-      enabled: true
-      fail-fast: true
+      uri: http://lc.config.com:8888/
       profile: test
   rabbitmq:
     host: lc.rabbit.com
