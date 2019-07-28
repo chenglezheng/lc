@@ -5,7 +5,7 @@ spring:
     name: lc-user-center
   datasource:
     name: lc-mybatis
-    url: jdbc:mysql://lc.mysql.com/lc
+    url: jdbc:mysql://lc.mysql.com/lc?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
     password: clz123456
     # 使用druid数据源
