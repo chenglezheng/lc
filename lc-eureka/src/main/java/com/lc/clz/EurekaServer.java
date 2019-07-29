@@ -14,6 +14,6 @@ public class EurekaServer {
        /* System.out.println("请输入服务名称，服务名称为“server1”或“server2”，请尽量同时启动这两个服务，以免控制台出现报错信息...");
         Scanner scanner = new Scanner(System.in);
         String profiles = scanner.nextLine();*/
-        new SpringApplicationBuilder(EurekaServer.class).profiles("server2").run(args);
+        new SpringApplicationBuilder(EurekaServer.class).profiles("server1").run(args);
     }
 }

@@ -4,8 +4,8 @@ spring:
       label: master
       uri: http://lc.config.com:8888/
       profile: test
-  rabbitmq:
-    host: lc.rabbit.com
-    port: 5672
-    username: guest
-    password: guest
+#  rabbitmq:
+#    host: lc.rabbit.com
+#    port: 5672
+#    username: guest
+#    password: guest

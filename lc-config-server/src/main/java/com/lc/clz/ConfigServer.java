@@ -10,7 +10,6 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableEurekaClient  //服务客户端，让该服务注册到Eureka中
-@EnableDiscoveryClient //服务发现
 @EnableConfigServer  //启动注册中心
 public class ConfigServer {
 
