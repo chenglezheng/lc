@@ -1,0 +1,17 @@
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true     #访问路径可以显示IP地址
+    lease-renewal-interval-in-seconds: 30 #该字段代表每2s像服务器发送一次心跳
+    lease-expiration-duration-in-seconds: 90  #该字段代表如果6s内没有接收到客户端发过来的心跳，则会从实例中清除掉这个实例
+  client:
+    initial-instance-info-replication-interval-seconds: 6
+    serviceUrl:
+      defaultZone: http://lc.eureka.com:8761/eureka/,http://lc.eureka.com:8762/eureka/
+
+#info需要显示的信息
+info:
+  app.name: lc-tx-manager
+  company.name: www.chenglezheng.com
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
