@@ -99,7 +99,6 @@
         <module>lc-config-server</module>
         <module>lc-quartz</module>
         <module>lc-auth-center</module>
-        <module>lc-tx-manager</module>
     </modules>
 
 </project>
