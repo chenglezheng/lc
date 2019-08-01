@@ -7,3 +7,5 @@
 127.0.0.1 lc.oauth.com
 127.0.0.1 lc.auth.com
 127.0.0.1 lc.resource.com
+
+此版本暂时停止更新
